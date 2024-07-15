@@ -1,0 +1,19 @@
+<xsd:schema
+        xmlns:te="http://www.opengeospatial.net/te"
+        xmlns:gml="http://www.opengis.net/gml"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        targetNamespace="http://www.opengeospatial.net/te">
+    <xsd:import namespace="http://www.opengis.net/gml" schemaLocation="http://127.0.0.1:8083/geoserver/schemas/gml/2.1.2/feature.xsd"/>
+    <xsd:complexType name="test_tableType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="geom" nillable="true" type="gml:GeometryPropertyType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="desc" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="test_table" substitutionGroup="gml:_Feature" type="te:test_tableType"/>
+</xsd:schema>
